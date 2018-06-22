@@ -33,7 +33,7 @@ pipeline {
 		  steps	{								
 		         /* bat "cd monitorapi && docker-compose	up	-d"	*/
 				 
-                     bat "cd monitorapi && docker-compose	up	-d"	
+                     bat "cd monitorapi && docker-compose"	
                     				 
 				} 
 		}
