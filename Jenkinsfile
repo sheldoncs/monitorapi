@@ -12,7 +12,6 @@ pipeline {
             steps {
 			
 			    withEnv([
-					"DOCKER_TLS_VERIFY=1",
 					"DOCKER_HOST=tcp://192.168.99.100:2376"
                 ]) 
                 /*bat 'cd monitorapi && chmod +x mvnw  && ./mvnw clean compile package && ./mvnw -DskipTests dockerfile:build' */ 
