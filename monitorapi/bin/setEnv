@@ -1,0 +1,10 @@
+#!/bin/sh
+
+export DB_USERNAME="<CHANGE>"
+export DB_PASSWORD="<CHANGE>"
+export DB_HOST="db.test1.int.qless.com"
+export DB_PORT="3306"
+export DB_USESSL="false"
+export DB_NAME="test1_qless"
+
+/bin/sh

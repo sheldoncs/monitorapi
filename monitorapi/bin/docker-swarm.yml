@@ -1,0 +1,41 @@
+#
+# This script creates a runtime environment for the QLess web service.
+#
+#	Commands
+#	Start:	docker-compose -f <file_name> up -d --no-recreate --remove-orphans
+#	Stop:	docker-compose -f <file_name> stop
+#	Clean:	docker-compose -f <file_name> rm
+#	Logs:	docker-compose -f <file_name> logs -tf
+#
+version: '3.1'
+services:
+ #
+ # Monitor API
+ #
+ monitorapi:
+  image: "288741890624.dkr.ecr.us-west-2.amazonaws.com/monitorapi:latest"
+  secrets:
+    - kioskconfigsettings_1.0
+#  container_name: monitorapi
+  environment:
+   - DB_HOST=db.test1.int.qless.com
+   - DB_PORT=3306
+   - DB_USESSL=false
+   - DB_NAME=test1_qless
+   - SECRETFILENAME=kioskconfigsettings_1.0
+
+   
+  hostname: monitorapi
+  ports:
+   - "9000:8080"
+  networks:
+   - kong_apis
+
+networks:
+  kong_apis:
+    external:
+     name: kong_apis
+
+secrets:                        # top level secrets block
+  kioskconfigsettings_1.0:
+    external: true

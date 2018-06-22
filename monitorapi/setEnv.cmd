@@ -1,0 +1,8 @@
+SET DB_USERNAME=<CHANGE>
+SET DB_PASSWORD=<CHANGE>
+SET DB_HOST=db.test1.int.qless.com
+SET DB_PORT=3306
+SET DB_USESSL=false
+SET DB_NAME=test1_qless
+
+cmd

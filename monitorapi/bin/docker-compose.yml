@@ -1,0 +1,50 @@
+#
+# This script creates a runtime environment for the QLess web service.
+#
+#	Commands
+#	Start:	docker-compose -f <file_name> up -d --no-recreate --remove-orphans
+#	Stop:	docker-compose -f <file_name> stop
+#	Clean:	docker-compose -f <file_name> rm
+#	Logs:	docker-compose -f <file_name> logs -tf
+#
+version: '3.1'
+services:
+ #
+ # Monitor Api API
+ #
+ monitorapi:
+  image: qless/monitorapi
+  secrets:
+    - kioskconfigsettings_1.0
+  container_name: monitorapi
+  env_file:
+   - variables.env
+
+   
+  hostname: monitorapi
+  ports:
+   - "9000:8080"
+
+secrets:                        # top level secrets block
+  kioskconfigsettings_1.0:
+    external: true
+    
+    
+    #mysql:
+    #container_name: my_mysql_container
+    #build: mysql
+    #environment:
+     #   - MYSQL_DATABASES=my_database
+     #   - MYSQL_ROOT_PASSWORD=root
+     #   - MYSQL_HOST=127.0.0.1
+     #   - MYSQL_PORT=33306
+     #   - MYSQL_USER=helpless
+     #   - MYSQL_PASSWORD=dev
+     #   - MYSQL_LOYALTY_DATABASE=my_database
+    #ports:
+        # MySQL
+     #   - "33306:3306"
+    #volumes:
+        # Mysql
+    #    - "./volumes/mysql:/var/lib/mysql"
+    
