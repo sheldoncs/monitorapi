@@ -8,17 +8,22 @@ pipeline {
         }
         stage('Build') { 
             steps {
-                sh 'cd monitorapi && chmod +x mvnw  && ./mvnw clean compile package && ./mvnw -DskipTests dockerfile:build'  
+                /*bat 'cd monitorapi && chmod +x mvnw  && ./mvnw clean compile package && ./mvnw -DskipTests dockerfile:build' */ 
+				/*bat 'cd monitorapi && mvnw  && ./mvnw clean compile package && ./mvnw -DskipTests dockerfile:build' */
+				bat 'cd monitorapi && mvnw clean compile package && mvnw -DskipTests dockerfile:build' 
+				
             }
         }
         stage('Test') {
             steps {
-                sh 'cd monitorapi && chmod +x mvnw  && ./mvnw test'
+               /* bat 'cd monitorapi && chmod +x mvnw  && ./mvnw test'*/
+			   bat 'cd monitorapi && mvnw test'
             }
         }
 		stage("Deploy	to	staging")	{
 		  steps	{								
-		          sh "cd monitorapi && docker-compose	up	-d"				
+		         /* bat "cd monitorapi && docker-compose	up	-d"	*/
+                 bat "cd monitorapi && docker-compose	up	-d"				 
 				} 
 		}
 
