@@ -32,7 +32,11 @@ pipeline {
 		stage("Deploy	to	staging")	{
 		  steps	{								
 		         /* bat "cd monitorapi && docker-compose	up	-d"	*/
-                 bat "cd monitorapi && docker-compose	up	-d"				 
+				 withEnv([
+				 "NO_PROXY=192.168.99.100"
+				 ]) {
+                     bat "cd monitorapi && docker-compose	up	-d"	
+                    }				 
 				} 
 		}
 
