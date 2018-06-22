@@ -31,10 +31,10 @@ pipeline {
         }
 		stage("Deploy to staging")	{
 		  steps	{								
-		         /* bat "cd monitorapi && docker-compose up	-d"	*/
+		         /* bat "cd monitorapi && docker-compose up	-d"	
 				 
                      bat "cd monitorapi && docker-compose up -d"	
-                    				 
+                 */   				 
 				} 
 		}
 
