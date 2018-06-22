@@ -29,11 +29,11 @@ pipeline {
 			   bat 'cd monitorapi && mvnw test'
             }
         }
-		stage("Deploy	to	staging")	{
+		stage("Deploy to staging")	{
 		  steps	{								
-		         /* bat "cd monitorapi && docker-compose	up	-d"	*/
+		         /* bat "cd monitorapi && docker-compose up	-d"	*/
 				 
-                     bat "cd monitorapi && docker-compose"	
+                     bat "cd monitorapi && docker-compose up -d"	
                     				 
 				} 
 		}
