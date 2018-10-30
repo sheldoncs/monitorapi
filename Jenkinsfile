@@ -13,7 +13,7 @@ pipeline {
 			
 			    withEnv([
 				    "DOCKER_TLS_VERIFY=1",
-					"DOCKER_HOST=tcp://172.17.0.1:2376",
+					"DOCKER_HOST=tcp://172.17.0.2:2376",
 					"DOCKER_CERT_PATH=C:/Users/administrator/.docker/machine/machines/default"
                 ]) {
                 /*bat 'cd monitorapi && chmod +x mvnw  && ./mvnw clean compile package && ./mvnw -DskipTests dockerfile:build' */ 
