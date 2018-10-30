@@ -6,7 +6,13 @@ pipeline {
               checkout scm
             }
         }
-        stage('Build') { 
+		stage('Test') {
+            steps {
+               /* bat 'cd monitorapi && chmod +x mvnw  && ./mvnw test'*/
+			   bat 'cd monitorapi && mvnw test'
+            }
+        }
+        stage('Build and deploy') { 
 		
 		    
             steps {
@@ -23,12 +29,7 @@ pipeline {
 				
             }
         }
-        stage('Test') {
-            steps {
-               /* bat 'cd monitorapi && chmod +x mvnw  && ./mvnw test'*/
-			   bat 'cd monitorapi && mvnw test'
-            }
-        }
+        
 		
 
         
